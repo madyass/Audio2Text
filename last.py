@@ -27,7 +27,7 @@ def load_ner_model():
     """
     Load the Named Entity Recognition (NER) model pipeline.
     """
-    ner_pipeline = pipeline("ner" , model = "dslim/bert-base-NER")
+    ner_pipeline = pipeline("ner" , model = "dslim/bert-base-NER" , , aggregation_strategy="simple")
     return ner_pipeline
 
 
@@ -73,8 +73,9 @@ def extract_entities(text, ner_pipeline):
 
     for entity in entities:
         word = entity['word']
-        entity_type = entity['entity']
-
+        entity_type = entity.get('entity_group' , entity.get('entity')) #aggreation_stragety="simple" argument cause that ner model returns 'entity_group' 
+                                                                        #if there is not 'entity_group' it returns 'entity'
+        
         if "PER" in entity_type and word not in grouped_entities['PERs']:  # person
             grouped_entities["PERs"].append(word)
         elif "ORG" in entity_type and word not in grouped_entities['ORGs']: # organization
