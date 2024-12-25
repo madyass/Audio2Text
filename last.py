@@ -27,7 +27,7 @@ def load_ner_model():
     """
     Load the Named Entity Recognition (NER) model pipeline.
     """
-    ner_pipeline = pipeline("ner" , model = "dslim/bert-base-NER" , , aggregation_strategy="simple")
+    ner_pipeline = pipeline("ner" , model = "dslim/bert-base-NER"  , aggregation_strategy="simple")
     return ner_pipeline
 
 
