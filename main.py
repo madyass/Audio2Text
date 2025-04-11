@@ -3,9 +3,7 @@ from transformers import pipeline
 
 device = "cpu" #select device
 
-# ------------------------------
-# Load Whisper Model
-# ------------------------------
+
 def load_whisper_model():
     """
     Load the Whisper model for audio transcription.
@@ -20,9 +18,6 @@ def load_whisper_model():
 
     return pipe
 
-# ------------------------------
-# Load NER Model
-# ------------------------------
 def load_ner_model():
     """
     Load the Named Entity Recognition (NER) model pipeline.
@@ -31,9 +26,6 @@ def load_ner_model():
     return ner_pipeline
 
 
-# ------------------------------
-# Transcription Logic
-# ------------------------------
 def transcribe_audio(uploaded_file, pipe):
     """
     Transcribe audio into text using the Whisper model.
@@ -49,9 +41,6 @@ def transcribe_audio(uploaded_file, pipe):
     
 
 
-# ------------------------------
-# Entity Extraction
-# ------------------------------
 def extract_entities(text, ner_pipeline):
     """
     Extract entities from transcribed text using the NER model.
@@ -85,16 +74,9 @@ def extract_entities(text, ner_pipeline):
 
     return grouped_entities
 
-# ------------------------------
-# Main Streamlit Application
-# ------------------------------
+
 def main():
     st.title("Meeting Transcription and Entity Extraction")
-
-    # You must replace below
-    STUDENT_NAME = "Muhammet Ahmet Saydam"
-    STUDENT_ID = "150230720"
-    st.write(f"**{STUDENT_ID} - {STUDENT_NAME}**")
 
     st.write("Upload a businees meeting audio file to:")
     st.write("1. Transcribe the meeting audio into text.")
