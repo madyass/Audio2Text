@@ -13,7 +13,7 @@ Features
 
 ---
 
-##Models Used
+## Models Used
 
 - **Speech Recognition**: [`openai/whisper-tiny`](https://huggingface.co/openai/whisper-tiny)  
   - Lightweight and fast automatic speech recognition model
@@ -22,7 +22,7 @@ Features
 
 ---
 
-##Installation
+## Installation
 
 Make sure you have Python 3.8+ installed.  
 Install the dependencies from the `requirements.txt` file:
